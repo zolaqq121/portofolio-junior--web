@@ -1,0 +1,80 @@
+<style>
+  .selesai {
+    text-decoration: line-through;
+    color: #888;
+  }
+  .task-item {
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+</style>
+
+<h2 id='angka'>0</h2>
+<button id='tambah'>Tambah</button>
+<button id='kurang'>Kurang</button>
+<button id='reset'>Reset</button>
+
+<form id='form-tugas'>
+  <label for='teks-tugas'>Tugas baru (maks 80 karakter)</label>
+  <input id='teks-tugas' maxlength='80' required>
+  <button type='submit'>Tambah</button>
+</form>
+
+<p>Tugas tersisa: <span id='sisa-tugas'>0</span></p>
+<ul id='daftar-tugas'></ul>
+
+<script>
+let hitung = 0;
+let jumlahTugas = 0;
+
+const angka = document.getElementById('angka');
+const sisaTugasEl = document.getElementById('sisa-tugas');
+const perbarui = () => { angka.textContent = hitung; };
+const perbaruiSisa = () => { sisaTugasEl.textContent = jumlahTugas; };
+
+document.getElementById('tambah').addEventListener('click', () => { hitung++; perbarui(); });
+document.getElementById('kurang').addEventListener('click', () => { hitung--; perbarui(); });
+document.getElementById('reset').addEventListener('click', () => { hitung = 0; perbarui(); });
+
+const form = document.getElementById('form-tugas');
+const daftar = document.getElementById('daftar-tugas');
+const inputTugas = document.getElementById('teks-tugas');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const teks = inputTugas.value.trim();
+  if (teks === '' || teks.length > 80) return;
+
+  const item = document.createElement('li');
+  item.className = 'task-item';
+  item.textContent = teks + ' ';
+
+  // Toggle selesai saat teks tugas diklik
+  item.addEventListener('click', (e) => {
+    if (e.target !== hapus) {
+      item.classList.toggle('selesai');
+      jumlahTugas += item.classList.contains('selesai') ? -1 : 1;
+      perbaruiSisa();
+    }
+  });
+
+  const hapus = document.createElement('button');
+  hapus.type = 'button';
+  hapus.textContent = 'Hapus';
+  
+  hapus.addEventListener('click', () => {
+    if (!item.classList.contains('selesai')) {
+      jumlahTugas--;
+      perbaruiSisa();
+    }
+    item.remove();
+  });
+
+  item.append(hapus);
+  daftar.append(item);
+  
+  jumlahTugas++;
+  perbaruiSisa();
+  form.reset();
+});
+</script>

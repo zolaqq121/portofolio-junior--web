@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form-daftar" novalidate>
+      <p>
+        <label for="nama">Nama</label>
+        <input
+          id="nama"
+          name="nama"
+          autocomplete="name"
+          aria-describedby="galat-nama"
+        />
+        <span id="galat-nama" class="galat" aria-live="polite"></span>
+      </p>
+      <!-- ulangi: email, hp, sandi (type='password'), konfirmasi (type='password') -->
+      <button id="kirim" type="submit" disabled>Kirim</button>
+    </form>
+    <section id="ringkasan" hidden></section>
+    <script type="module" src="js/apps.js"></script>
+  </body>
+</html>
