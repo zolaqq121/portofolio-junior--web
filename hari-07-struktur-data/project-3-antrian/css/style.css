@@ -1,0 +1,19 @@
+
+#editor {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    resize: vertical;
+}
+
+.tombol-riwayat {
+    display: flex;
+    gap: 10px;
+}
+
+button:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+}

@@ -1,0 +1,38 @@
+<!--Antrian-->
+<h1>Antrean Loket</h1>
+<p>Sedang dipanggil: <strong id="dipanggil">-</strong></p>
+<p>Menunggu: <span id="jumlah">0</span></p>
+<button id="ambil">Ambil Nomor</button>
+<button id="panggil">Panggil Berikutnya</button>
+<ol id="daftar"></ol>
+<script type="module" src="./js/antrian.js"></script>
+<!--Editor-->
+<textarea id="editor"></textarea>
+<button id="undo" disabled>Undo</button>
+<button id="redo" disabled>Redo</button>
+<p id="info"></p>
+<body>
+    
+<section class="panel">
+    <h2>Editor Catatan</h2>
+
+    <textarea
+        id="editor"
+        rows="8"
+        placeholder="Tulis catatan di sini..."
+    ></textarea>
+
+    <div class="tombol-riwayat">
+        <button id="undo" disabled>Undo</button>
+        <button id="redo" disabled>Redo</button>
+    </div>
+
+    <p id="info">Riwayat: 0 undo, 0 redo</p>
+</section>
+
+<script type="module" src="riwayat.js"></script>
+
+</body>
+
+
+<input type="text" id="editor" placeholder="masukkan kata"

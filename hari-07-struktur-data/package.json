@@ -1,0 +1,10 @@
+
+{
+  "name": "hari-07-sd2",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Praktik Hari 7 Struktur Data II",
+  "scripts": {
+    "test": "node lab1.js"
+  }
+}
